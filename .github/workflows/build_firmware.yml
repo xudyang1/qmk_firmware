@@ -1,4 +1,3 @@
----
 name: Build QMK Firmware
 
 on:
@@ -19,18 +18,17 @@ jobs:
 
       - name: Build Firmware
         run: |
-          qmk clean && \
-          qmk compile -e BUILD_DIR=.build -e SKIP_GIT=1 \
-          -e TARGET=jamesdonkey_j2_default-${{ github.ref_name }} \
-          -kb jamesdonkey/j2 -km custom
-
-      # - name: Upload Firmware Artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: jamesdonkey-j2-firmware
-      #     path: .build/${{ github.ref_name }}.hex
+          qmk clean
+          qmk compile \
+            -e BUILD_DIR=.build \
+            -e SKIP_GIT=1 \
+            -e TARGET=jamesdonkey_j2_custom-${{ github.ref_name }} \
+            -kb jamesdonkey/j2 -km custom
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          files: .build/*
+          # jamesdonkey j2 should use .bin file
+          files: |
+            .build/*.bin
+            .build/*.hex
