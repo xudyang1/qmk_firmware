@@ -46,7 +46,7 @@
 #    define SNLED27351_CURRENT_TUNE \
         { 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30 }
 
-/* Set to infinit, which is use in USB mode by default */
+/* Set to infinite, which is use in USB mode by default */
 #    define RGB_MATRIX_TIMEOUT RGB_MATRIX_TIMEOUT_INFINITE
 /* Allow shutdown of led driver to save power */
 #    define RGB_MATRIX_DRIVER_SHUTDOWN_ENABLE
@@ -100,7 +100,7 @@
 
 #        define P24G_INDICATION_LED_INDEX 18
 
-/* Reinit LED driver on tranport changed */
+/* Reinit LED driver on transport changed */
 #        define REINIT_LED_DRIVER 1
 #    endif
 
